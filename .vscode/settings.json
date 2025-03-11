@@ -83,6 +83,8 @@
         "regex": "cpp",
         "armadillo": "cpp",
         "filesystem": "cpp",
-        "__nullptr": "cpp"
+        "__nullptr": "cpp",
+        "ios": "cpp",
+        "shared_mutex": "cpp"
     }
 }

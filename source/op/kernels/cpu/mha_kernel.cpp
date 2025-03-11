@@ -49,8 +49,7 @@ void mha_kernel(int32_t pos, int32_t head_num, int32_t layer_index, int32_t seq_
 
         int32_t cache_offset = (h / kv_mul) * head_size;
         float* value_head_addr = const_cast<float*>(value_cache_tensor.ptr<float>()) + layer_offset + cache_offset;
-        tensor::Tensor value_tensor(base::DataType::kDataTypeFp32, head_size, false, nullptr,
-            value_head_addr);
+        tensor::Tensor value_tensor(base::DataType::kDataTypeFp32, head_size, false, nullptr, value_head_addr);
         get_scale_sum_kernel(device_type)(value_tensor, score_head_tensor, output_tensor, pos,
             head_size, kv_dim, config ? config->stream : nullptr);
     }
