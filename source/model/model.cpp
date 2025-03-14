@@ -76,7 +76,8 @@ base::Status Model::read_model_file() {
     } else {
         raw_model_data_ = std::make_shared<RawModelDataInt8>();
     }
-  
+
+    //创建文件管理结构体，获得文件大小，指针等（MMAP)技术
     struct stat sb;
     if (fstat(fd, &sb) == -1) {
         close(fd);
